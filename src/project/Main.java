@@ -3,6 +3,11 @@ package project;
 public class Main {
 
     public static void main(String[] args) {
-	// test commit
+//   new MechanicRegistration();
+	   new Login();
+//     new CustomerRegistration();
+//     new Admin();
+//     new Mechanic();
+//     new Driver();
     }
 }
