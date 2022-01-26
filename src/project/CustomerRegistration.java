@@ -159,16 +159,18 @@ public class CustomerRegistration extends JFrame {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
                     String userName = field1.getText();
-                    //String fullName = field2.getText();
+                    String fullName = field2.getText();
                     String email = field3.getText();
                     String pass = field4.getText();
-                    //String conPass = field5.getText();
+                    String conPass = field5.getText();
                     String mobile = field6.getText();
                     String address = field7.getText();
 
 
                     DBconnect db=new DBconnect();
-                    String queryInsert = "INSERT INTO `ureg` (`userName`, `email`, `mob`, `pass`, `add`) VALUES ('"+userName+"', '"+email+"', '"+mobile+"','"+pass+"', '"+address+"');";
+                    //String queryInsert = "INSERT INTO `ureg` (`userName`, `email`, `mob`, `pass`, `add`) VALUES ('"+userName+"', '"+email+"', '"+mobile+"','"+pass+"', '"+address+"');";
+
+                   String queryInsert = "INSERT INTO `ureg`(`userName`, `fullName`, `email`, `pass`, `conPass`, `mob`, `add`) VALUES ('"+userName+"','"+fullName+"','"+email+"','"+pass+"','"+conPass+"','"+mobile+"','"+address+"')";
                     db.RegisterInsert(queryInsert);         //
                 }                                           //
             });

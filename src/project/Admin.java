@@ -5,6 +5,7 @@ package project;
         import java.awt.*;
         import java.awt.event.ActionEvent;
         import java.awt.event.ActionListener;
+        import java.net.URI;
 
 
 public class Admin extends JFrame {
@@ -57,7 +58,24 @@ public class Admin extends JFrame {
         bt3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                try{
+                    final URI url = new URI("http://localhost/phpmyadmin/sql.php?server=1&db=project&table=macreg&pos=0");
+                    if(Desktop.isDesktopSupported()){
+                        Desktop desktop = Desktop.getDesktop();
+                        try{
+                            desktop.browse(url);
 
+                        }
+                        catch (Exception ex){
+                            System.out.println(ex);
+                        }
+                    }
+                    else{
+                        System.out.println("ERROR!");
+                    }
+                }catch (Exception ex){
+                    System.out.println(ex);
+                }
             }
         });
 
@@ -72,7 +90,24 @@ public class Admin extends JFrame {
         bt4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                try{
+                    final URI url = new URI("http://localhost/phpmyadmin/sql.php?server=1&db=project&table=ureg&pos=0");
+                    if(Desktop.isDesktopSupported()){
+                        Desktop desktop = Desktop.getDesktop();
+                        try{
+                            desktop.browse(url);
 
+                        }
+                        catch (Exception ex){
+                            System.out.println(ex);
+                        }
+                    }
+                    else{
+                        System.out.println("ERROR!");
+                    }
+                }catch (Exception ex){
+                    System.out.println(ex);
+                }
             }
         });
 
@@ -87,7 +122,24 @@ public class Admin extends JFrame {
         bt5.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                try{
+                    final URI url = new URI("http://localhost/phpmyadmin/sql.php?server=1&db=project&table=macreg&pos=0");
+                    if(Desktop.isDesktopSupported()){
+                        Desktop desktop = Desktop.getDesktop();
+                        try{
+                            desktop.browse(url);
 
+                        }
+                        catch (Exception ex){
+                            System.out.println(ex);
+                        }
+                    }
+                    else{
+                        System.out.println("ERROR!");
+                    }
+                }catch (Exception ex){
+                    System.out.println(ex);
+                }
             }
         });
 
@@ -102,7 +154,24 @@ public class Admin extends JFrame {
         bt6.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                try{
+                    final URI url = new URI("http://localhost/phpmyadmin/sql.php?server=1&db=project&table=ureg&pos=0");
+                    if(Desktop.isDesktopSupported()){
+                        Desktop desktop = Desktop.getDesktop();
+                        try{
+                            desktop.browse(url);
 
+                        }
+                        catch (Exception ex){
+                            System.out.println(ex);
+                        }
+                    }
+                    else{
+                        System.out.println("ERROR!");
+                    }
+                }catch (Exception ex){
+                    System.out.println(ex);
+                }
             }
         });
 
@@ -132,7 +201,8 @@ public class Admin extends JFrame {
         bt8.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                dispose();
+                new Admin_Pass_Chng();
             }
         });
 
@@ -147,7 +217,8 @@ public class Admin extends JFrame {
         bt9.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
+                dispose();
+                new Login();
             }
         });
 

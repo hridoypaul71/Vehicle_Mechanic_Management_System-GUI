@@ -5,10 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Login extends JFrame{
-
+    static String pass;
     JPanel panel1, panel2;
     JLabel l1, l2, l3, l4;
-    JTextField field1, field2;
+    JTextField field1;
+    JPasswordField field2;
     JButton bt1,bt2,bt3;
 
     public Login(){
@@ -59,7 +60,7 @@ public class Login extends JFrame{
         l3.setFont(font2);
         panel2.add(l3);
 
-        field2 = new JTextField();
+        field2 = new JPasswordField();
         field2.setBounds(185, 114, 300, 25);
         field2.setFont(font2);
         panel2.add(field2);
@@ -92,8 +93,53 @@ public class Login extends JFrame{
         panel2.add(bt3);
 
 
+        bt1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent){
 
-        bt2.addActionListener(new ActionListener() {
+
+                dispose();
+                String Login_uname = field1.getText();
+                String Login_pass = String.valueOf(field2.getPassword());
+
+                if(Login_uname.equals("admin")&&Login_pass.equals("12345")){            // admin er log in er jonno
+                    //System.out.println("Admin");
+                    new Admin();
+                }
+                else{                               // customer and machanic gular log in er jonno
+
+                    dispose();
+                    //new Driver();
+                    String queryLogin_mac = null;
+                    String queryLogin_cus = null;
+
+                    ConnectionProvider db = new ConnectionProvider();
+                    queryLogin_mac = "SELECT * FROM `macreg` WHERE uname='"+Login_uname+"'";
+                    queryLogin_cus = "SELECT * FROM `ureg` WHERE uname='"+Login_uname+"'";
+
+                    if(queryLogin_cus.equals(null) && !queryLogin_mac.equals(null)){
+                        try {
+                            db.Login_mac(queryLogin_mac, Login_uname, Login_pass);
+                            JOptionPane.showMessageDialog(null, "log in successfull as a mechanic");
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                    else if(queryLogin_mac.equals(null) && !queryLogin_cus.equals(null) ){
+                        try {
+                            db.Login_cus(queryLogin_cus, Login_uname, Login_pass);
+                            JOptionPane.showMessageDialog(null, "log in successfull as a customer");
+                        } catch (Exception ex) {
+                            JOptionPane.showMessageDialog(null, "log in successfull as a customer");
+
+                            ex.printStackTrace();
+                        }
+                    }
+
+                }
+            }
+        });
+
+        bt2.addActionListener(new ActionListener() {   // b2 for customer registration
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 dispose();
@@ -103,12 +149,13 @@ public class Login extends JFrame{
 
         bt3.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent actionEvent) {
+            public void actionPerformed(ActionEvent actionEvent) {  // b3 for machaniccs
                 dispose();
                 new MechanicRegistration();
             }
         });
         setVisible(true);
+
     }
 
 }

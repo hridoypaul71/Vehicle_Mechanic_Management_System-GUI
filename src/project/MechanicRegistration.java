@@ -162,7 +162,11 @@ public class MechanicRegistration extends JFrame{
                 String serArea = field9.getText();
 
                 DBconnect db=new DBconnect();
-                String queryInsert = "INSERT INTO `macreg` (`userName`, `pass`, 'mobile', 'serType','serArea') VALUES ('"+userName+"', '"+pass+"', '"+mobile+"', '"+serType+"', '"+serArea+"');";
+                //String queryInsert = "INSERT INTO `macreg` (`userName`, `pass`, 'mobile', 'serType','serArea') VALUES ('"+userName+"', '"+pass+"', '"+mobile+"', '"+serType+"', '"+serArea+"');";
+
+                //String queryInsert = "INSERT INTO `macreg`(`userName`, `pass`, `mobile`, `serType`, `serArea`) VALUES ('"+userName+"','"+pass+"','"+mobile+"','"+serType+"','"+serArea+"')";
+
+                String queryInsert = "INSERT INTO `macreg`(`userName`, `fullName`, `email`, `pass`, `cpass`, `mobile`, `address`, `serType`, `serArea`) VALUES ('"+userName+"','"+fullName+"','"+email+"','"+pass+"','"+conPass+"','"+mobile+"','"+address+"','"+serType+"','"+serArea+"')";
                 db.RegisterInsert(queryInsert);         //
             }
         });
