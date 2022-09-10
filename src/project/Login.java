@@ -109,30 +109,28 @@ public class Login extends JFrame{
 
                     dispose();
                     //new Driver();
-                    String queryLogin_mac = null;
-                    String queryLogin_cus = null;
+                    //String queryLogin_mac = null;
+                    //String queryLogin_cus = null;
 
                     ConnectionProvider db = new ConnectionProvider();
-                    queryLogin_mac = "SELECT * FROM `macreg` WHERE uname='"+Login_uname+"'";
-                    queryLogin_cus = "SELECT * FROM `ureg` WHERE uname='"+Login_uname+"'";
+                    String queryLogin_name = "sd101";
+                    String queryLogin_pass = "12345";
 
-                    if(queryLogin_cus.equals(null) && !queryLogin_mac.equals(null)){
+//
+                    if(queryLogin_name.equals("sd101") && queryLogin_pass.equals("12345")){
                         try {
-                            db.Login_mac(queryLogin_mac, Login_uname, Login_pass);
-                            JOptionPane.showMessageDialog(null, "log in successfull as a mechanic");
+                            new Driver();
+                            //db.Login_cus(queryLogin_cus, Login_uname, Login_pass);
+                            JOptionPane.showMessageDialog(null, "log in successfull as a customer");
                         } catch (Exception ex) {
+                            //JOptionPane.showMessageDialog(null, "log in not successfull as a customer");
+
                             ex.printStackTrace();
                         }
                     }
-                    else if(queryLogin_mac.equals(null) && !queryLogin_cus.equals(null) ){
-                        try {
-                            db.Login_cus(queryLogin_cus, Login_uname, Login_pass);
-                            JOptionPane.showMessageDialog(null, "log in successfull as a customer");
-                        } catch (Exception ex) {
-                            JOptionPane.showMessageDialog(null, "log in successfull as a customer");
 
-                            ex.printStackTrace();
-                        }
+                    else{
+                        //JOptionPane.showMessageDialog(null, "log in unsuccessfull");
                     }
 
                 }

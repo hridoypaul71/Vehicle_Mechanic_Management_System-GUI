@@ -1,11 +1,9 @@
-//package project;
-//
-//public class Driver {
-//}
 package project;
 
         import javax.swing.*;
         import java.awt.*;
+        import java.awt.event.ActionEvent;
+        import java.awt.event.ActionListener;
 
 public class Driver extends JFrame {
 
@@ -21,12 +19,13 @@ public class Driver extends JFrame {
 
     Driver() {
 
+
         //Font
         Font font = new Font("Showcard Gothic", Font.BOLD, 25);
         Font font2 = new Font("Mono", Font.BOLD, 17);
         Font font3 = new Font("Segoe Script", Font.BOLD, 17);
 
-        setSize(565, 300);
+        setSize(565, 365);
         setLocationRelativeTo(null);
         setLayout(null);
         setDefaultCloseOperation(3);
@@ -35,7 +34,7 @@ public class Driver extends JFrame {
 
 
         panel1 = new JPanel();
-        panel1.setBounds(0, 0, 551, 50);
+        panel1.setBounds(4, 0, 552, 50);
         panel1.setBackground(Color.DARK_GRAY);
         add(panel1);
         panel1.setLayout(null);
@@ -47,7 +46,7 @@ public class Driver extends JFrame {
         panel1.add(l1);
 
         panel2 = new JPanel();
-        panel2.setBounds(4, 54, 550, 533);
+        panel2.setBounds(4, 54, 550, 278);
         panel2.setBackground(Color.cyan);
         panel2.setLayout(null);
         add(panel2);
@@ -88,14 +87,50 @@ public class Driver extends JFrame {
         field3.setBounds(200, 117, 270, 25);
         panel2.add(field3);
 
-        l5 = new JLabel("Logout :");
-        l5.setBounds(120, 161, 150, 25);
-        l5.setFont(font2);
-        panel2.add(l5);
+//        l5 = new JLabel("Logout :");
+//        l5.setBounds(120, 161, 150, 25);
+//        l5.setFont(font2);
+//        panel2.add(l5);
+//
+//        field4 = new JTextField();
+//        field4.setBounds(200, 161, 270, 25);
+//        panel2.add(field4);
 
-        field4 = new JTextField();
-        field4.setBounds(200, 161, 270, 25);
-        panel2.add(field4);
+        bt1 = new JButton("Search");
+        bt1.setBounds(400, 225, 100, 30);
+        bt1.setFont(font2);
+        bt1.setBackground(Color.white);
+        bt1.setFocusable(false);
+        //  bt2.setBorder(new LineBorder(Color.BLUE));
+        panel2.add(bt1);
+
+
+        bt1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                dispose();
+
+
+                new ContactMechanic();
+            }
+        });
+
+        bt2 = new JButton("Back");
+        bt2.setBounds(50, 225, 100, 30);
+        bt2.setFont(font2);
+        bt2.setBackground(Color.white);
+        bt2.setFocusable(false);
+        //  bt2.setBorder(new LineBorder(Color.BLUE));
+        panel2.add(bt2);
+
+
+        bt2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                dispose();
+                new Login();
+            }
+        });
 
         setVisible(true);
     }}

@@ -93,7 +93,7 @@ public class Admin_Pass_Chng extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 dispose();
-                //new Admin();
+                new Admin();
             }
         });
 
